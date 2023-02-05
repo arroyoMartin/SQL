@@ -1,0 +1,27 @@
+--Create a card database
+
+CREATE TABLE cards(id INTEGER primary key, name TEXT,quantity INTEGER,price INTEGER, rarity TEXT);
+
+INSERT INTO cards VALUES
+(0,"Urza",1,10,"mythic"),
+(1,"Mishra",1,8,"mythic"),
+(2,"Breya",1,9,"mythic"),
+(3,"Kalamax",0,6,"mythic"),
+(4,"Nicol",0,5,"mythic"),
+(5,"Ugin",1,7,"mythic"),
+(6,"Jace",5,9,"mythic"),
+(7,"Teferi",4,10,"mythic"),
+(8,"Gix",1,10,"mythic"),
+(9,"Chandra",2,6,"mythic"),
+(10,"Liliana",1,4,"mythic"),
+(11,"Serra",0,9,"mythic"),
+(12,"angel",40,3,"commun"),
+(13,"demon",30,2,"commun"),
+(14,"Davriel",2,20,"mythic");
+
+--display the database ordered by price. 
+select * FROM cards ORDER BY price;
+
+--what is the sum in the quantity section? 
+select sum(quantity) from cards;
+
