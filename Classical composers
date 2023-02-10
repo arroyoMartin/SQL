@@ -1,0 +1,45 @@
+
+CREATE TABLE classical_composers(
+   id Integer PRIMARY KEY,
+   name TEXT,
+   birth_year Integer,
+   death_year Integer,
+   country_id Integer
+);
+CREATE TABLE musical_pieces (
+   id INTEGER PRIMARY KEY,
+   name TEXT,
+   composer_id Integer,
+   year integer
+);
+CREATE TABLE country (
+   id INTEGER PRIMARY KEY,
+   name text
+);
+
+INSERT INTO classical_composers (name, birth_year, death_year, country_id) VALUES
+("Wolfgang Amadeus Mozart", 1756, 1791, 1),
+("Ludwig van Beethoven", 1770, 1827, 2),
+("Johann Sebastian Bach", 1685, 1750, 2),
+("Frédéric Chopin", 1810, 1849, 3),
+("Pyotr Ilyich Tchaikovsky", 1840, 1893, 4);
+
+INSERT INTO musical_pieces (name, composer_id, year) VALUES
+("Symphony No. 40 in G minor, K. 550", 1, 1788),
+("Moonlight Sonata", 2, 1801),
+("Brandenburg Concertos", 3, 1721),
+("Nocturne in E flat major, Op. 9, No. 2", 4, 1830),
+("Swan Lake, Op. 20", 5, 1876);
+
+INSERT INTO country (name) VALUES
+("Austria"),
+("Germany"),
+("Poland"),
+("Russia"),
+("France");
+
+select cc.name as "composer",mp.name as "Piece", mp.year,c.name as "Country"
+from classical_composers cc join musical_pieces mp
+on cc.id = mp.composer_id join country c
+on cc.country_id = c.id order by mp.year;
+
