@@ -1,0 +1,29 @@
+--In this SQL code, I'm querying a database that's holding Nexflix data to answer questions about the data. 
+
+
+--SELECT  netflix_people.director,"netflix_titles_info"
+--FROM "CharlotteChaze/BreakIntoTech"."netflix_people"
+--join "CharlotteChaze/BreakIntoTech"."netflix_titles_info" 
+--on "netflix_titles_info".show_id = "netflix_people".show_id;
+
+--How many movie titles are there in the database? (movies only, not tv shows) = 6131
+--SELECT count("netflix_titles_info") FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" where type = 'Movie';
+
+--When was the most recent batch of tv shows and/or movies added to the database? = 2021-09-25 00:00:00
+--Select date_added from  "CharlotteChaze/BreakIntoTech"."netflix_titles_info" order by date_added desc;
+
+--Would have been better this way
+--select max(date(date_added))FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
+
+--List all the movies and tv shows in alphabetical order.
+--SELECT title FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" order by title asc;
+
+--Who was the Director for the movie Bright Star? Jane Campion
+--SELECT  netflix_people.director,"netflix_titles_info"
+--FROM "CharlotteChaze/BreakIntoTech"."netflix_people"
+--join "CharlotteChaze/BreakIntoTech"."netflix_titles_info" 
+--on "netflix_titles_info".show_id = "netflix_people".show_id 
+--where "netflix_titles_info".title = 'Bright Star';
+
+--What is the oldest movie in the database and what year was it made? = The Battle of Midway 1942
+--Select title,release_year from  "CharlotteChaze/BreakIntoTech"."netflix_titles_info" where type = 'Movie' order by release_year asc;
